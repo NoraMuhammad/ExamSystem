@@ -8,13 +8,26 @@ using System.IO;
 
 namespace Examination_System
 {
-    class QuestionList<T>
+    class QuestionList<TQuestion, TAnswer>
     {
-        List<Question<T>> _questionList;
+        List<Question<TQuestion, TAnswer>> _questionList;
 
         public QuestionList()
         {
-            
+            _questionList = new List<Question<TQuestion, TAnswer>>();
+        }
+        public void AddToList(Question<TQuestion, TAnswer> Q)
+        {
+            _questionList.Add(Q);
+        }
+        public override string ToString()
+        {
+            string returnStr = "";
+            for (int i = 0; i < _questionList.Count; i++)
+            {
+                returnStr += $"{_questionList[i].ToString()}\n";
+            }
+            return returnStr;
         }
     }
 }

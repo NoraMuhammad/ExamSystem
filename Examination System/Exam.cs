@@ -9,18 +9,22 @@ namespace Examination_System
     abstract class Exam
     {
         protected string _ExamPath;
-        protected QuestionList<TrueFalse_Q> TF_ExamQuestions;
-        protected QuestionList<ChooseOne_Q> CHO_ExamQuestions;
-        protected QuestionList<ChooseAll_Q> CHA_ExamQuestions;
-        protected AnswerList ExamAnswers;
+        protected float ExamGrade;
+        protected float ExamTotalMarks;
+        protected List<Dictionary<Question<TrueFalse_Q, Answer>, Answer>> TF_ExamQuestions;
+        protected List<Dictionary<Question<ChooseOne_Q, Answer>, Answer>> CHO_ExamQuestions;
+        protected List<Dictionary<Question<ChooseAll_Q, AnswerList>, AnswerList>> CHA_ExamQuestions;
+
         public Exam()
         {
-            TF_ExamQuestions = new QuestionList<TrueFalse_Q>();
-            CHO_ExamQuestions = new QuestionList<ChooseOne_Q>();
-            CHA_ExamQuestions = new QuestionList<ChooseAll_Q>();
-            ExamAnswers = new AnswerList();
+            ExamGrade = 0;
+            ExamTotalMarks = 0;
+            TF_ExamQuestions = new List<Dictionary<Question<TrueFalse_Q, Answer>, Answer>>();
+            CHO_ExamQuestions = new List<Dictionary<Question<ChooseOne_Q, Answer>, Answer>>();
+            CHA_ExamQuestions = new List<Dictionary<Question<ChooseAll_Q, AnswerList>, AnswerList>>();
         }
         public abstract void StartExam();
         public abstract void CheckAnswersOfExam();
+        public abstract void ShowExamModelAnswer();
     }
 }

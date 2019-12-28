@@ -7,9 +7,10 @@ using System.IO;
 
 namespace Examination_System
 {
-    abstract class Question<T>
+    abstract class Question<TQuestion, TAnswer>
     {
         protected int _QNum;
+        protected string _QHeader;
         protected string _QBody;
         protected float _QMarks;
         protected AnswerList Choices;
@@ -17,9 +18,10 @@ namespace Examination_System
         {
             Choices = new AnswerList();
         }
-        public abstract T readQuestionFromFile(string path);
+        public abstract TQuestion readQuestionFromFile(string QFileName, string QChoicesFileName);
+        public abstract bool checkQuestionAnswer(TAnswer answer);
+        public float getQuestionMarks() => _QMarks;
         public abstract void printQuestionNoAnswer();
-        public abstract void printQuestionWithAnswer();
         public override string ToString()
         {
             return $"{_QNum}) {_QBody}   {_QMarks}";

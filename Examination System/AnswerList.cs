@@ -9,16 +9,27 @@ namespace Examination_System
     class AnswerList:Answer
     {
         List<Answer> AnswersList;
+        public int Length
+        {
+            get
+            {
+                return AnswersList.Count;
+            }
+        }
         public AnswerList()
         {
             AnswersList = new List<Answer>();
+        }
+        public Answer GetAnswerAtIndex(int index)
+        {
+            return AnswersList[index];
         }
         public List<Answer> setAnswers(string answers)
         {
             string[] myAnswers = answers.Split('#');
             for(int i = 0; i < myAnswers.Length; i++)
             {
-                AnswersList[i] = AnswersList[i].setAnswer(myAnswers[i]);
+                AnswersList.Add(setAnswer(myAnswers[i]));
             }
             return AnswersList;
         }

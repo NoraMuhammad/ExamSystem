@@ -11,7 +11,7 @@ namespace Examination_System
     {
         static void Main(string[] args)
         {
-            FinalExam finalExam = new FinalExam("Final Exam/Questions/");
+            FinalExam finalExam = new FinalExam("Final Exam/");
             finalExam.StartExam();
             //finalExam.CheckAnswersOfExam();
 

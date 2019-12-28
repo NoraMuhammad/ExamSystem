@@ -17,6 +17,11 @@ namespace Examination_System
             throw new NotImplementedException();
         }
 
+        public override void ShowExamModelAnswer()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void StartExam()
         {
             throw new NotImplementedException();
